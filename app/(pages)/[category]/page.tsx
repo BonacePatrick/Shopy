@@ -4,14 +4,9 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-export default async function CategoryPage({
-  params,
-}: {
-  params: { category: string };
-}) {
-  const { category } = await params;
+export default async function CategoryPage({ params }: { params: Promise<{ slug: string }> }) {
   const categoryQuery = `
-    *[_type == "product" && category->name == "${category}"]{
+    *[_type == "product" && category->name == "${(await (params)).slug}"]{
   _id,
     name,
     "slug": slug.current,
@@ -26,7 +21,7 @@ export default async function CategoryPage({
     <>
      <section className="min-h-[70vh] py-6 md:py-14">
         <div className="flex items-center justify-between">
-          <h2 className="text-lg md:text-2xl font-bold">Our Products for {category}</h2>
+          <h2 className="text-lg md:text-2xl font-bold">Our Products for {(await (params)).slug}</h2>
         </div>
         {/* Recent Products */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-6">

@@ -11,9 +11,6 @@ const NavLinks = [
   { name: "Women", href: "/Women" },
   { name: "Teens", href: "/Teens" },
 ];
-interface Cart {
-  cartCount?: number; // The ? makes it optional
-}
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);

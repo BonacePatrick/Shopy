@@ -4,7 +4,7 @@ import Hero from "@/components/Hero";
 import RecentProducts from "@/components/RecentProducts";
 
 
-export default async function Home({searchParams}:{searchParams: {category: string}}) {
+export default async function Home({searchParams}:{searchParams: Promise<{ category: string }>}) {
   const {category} = await searchParams
   return (
     <>

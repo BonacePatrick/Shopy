@@ -4,10 +4,12 @@ import { urlFor } from "@/sanity/client";
 import React from "react";
 import { useShoppingCart } from "use-shopping-cart";
 
+
 export interface ProductCart {
     price_id: string;
     name: string;
     price: number;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     image: any
     currency: string;
     description: string

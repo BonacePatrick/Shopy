@@ -7,13 +7,8 @@ import React from "react";
 
 export const revalidate = 10;
 
-export default async function ProductDetail({
-  params,
-}: {
-  params: { slug: string };
-}) {
-  const { slug } = await params;
-  const productDetailQuery = `*[_type == "product" && slug.current == "${slug}"][0]{
+export default async function ProductDetail({ params }: { params: Promise<{ slug: string }> }) {
+  const productDetailQuery = `*[_type == "product" && slug.current == "${(await (params)).slug}"][0]{
   _id,
     name,
     "slug": slug.current,

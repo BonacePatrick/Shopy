@@ -4,9 +4,10 @@ import { urlFor } from "@/sanity/client";
 import Image from "next/image";
 import React, { useState } from "react";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default function ImageGallery({ images }: { images: any }) {
   const [bigImage, setBigImage] = useState(images[0]);
-  
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handlePickImage = (image: any) => {
     setBigImage(image)
   }
@@ -14,6 +15,7 @@ export default function ImageGallery({ images }: { images: any }) {
     <>
       <div className="grid lg:grid-cols-5 gap-2">
         <div className="order-last flex gap-4 lg:order-none lg:flex-col">
+        {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
           {images.map((image: any, index: number) => (
             <div
               className="w-full h-full md:h-[40%] transition duration-500 bg-gray-100 p-4 rounded-2xl overflow-hidden cursor-pointer"
