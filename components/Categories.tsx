@@ -14,7 +14,7 @@ export default function Categories() {
 
   return (
     <>
-      <div role="tablist" className="tabs tabs-bordered my-6 md:my-8">
+      <div role="tablist" className="tabs tabs-bordered my-6 md:my-8 w-[80%] md:w-full">
         <button
           onClick={() => handleCategoryChange("all")}
           role="tab"
